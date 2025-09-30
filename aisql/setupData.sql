@@ -1,49 +1,52 @@
-INSERT INTO person (person_id, name) VALUES
-(1, 'Laura Stevenson'),
-(2, 'Bob Jones'),
-(3, 'Charlie Brown'),
-(4, 'Jimmy Hendricks'),
-(5, 'Sydney Smith'),
-(6, 'Jordan Malone');
+INSERT INTO Person (person_id, first_name, last_name, email, phone_number) VALUES
+(1, 'Laura', 'Stevenson', 'laurastevenson@gmail.com', '1231231233'),
+(2, 'Bob', 'Jones', 'bobbyondatthang@hotmail.com', '78984621887'),
+(3, 'Charlie', 'Brown', 'ohbotherandshii@gmail.com', '8114620017'),
+(4, 'Jimmy', 'Hendricks', 'youveheardofmebefore@aol.com', '7110498636'),
+(5, 'Sydney', 'Smith', 'p42wallabyway@proton.me', '14445471672'),
+(6, 'Post', 'Malone', 'pinkutahcanesbabyyyy@gmail.com', '9876543210');
 
-INSERT INTO phone (phone_id, person_id, area_code, number, can_recieve_sms) VALUES
-(1, 1, 123, 4567890, 1),
-(2, 2, 234, 5678901, 0),
-(3, 3, 345, 6789012, 1),
-(4, 3, 345, 6789013, 0);
+INSERT INTO Employee (person_id, employee_position, wages, date_hired, is_adult) VALUES
+(1, 'Manager', 20.00, '2020-01-15', 1),
+(5, 'Cashier', 13.00, '2023-02-01', 0);
 
-INSERT INTO address (address_id, person_id, street, zip) VALUES
-(1, 1, '123 Maple Street', 10001),
-(2, 2, '456 Oak Road', 20002),
-(3, 3, '789 Pine Avenue', 30003),
-(4, 4, '119 3rd Street', 84604),
-(5, 5, '121 3rd Street', 84604),
-(6, 6, '123 3rd Street', 84604);
+INSERT INTO Customer (person_id, rewards_points, payment_number) VALUES
+(2, 55, '2345678901234567'),
+(3, 0, ''),
+(4, 10, ''),
+(6, 0, '6789012345678901');
 
-INSERT INTO zip (zip, city, state_two_letter_code) VALUES
-(10001, 'New York', 'NY'),
-(20002, 'Washington', 'DC'),
-(30003, 'Los Angeles', 'CA'),
-(84604, 'Provo', 'UT');
+INSERT INTO Theater_Order (order_id, buyer_id, total_price, order_type) VALUES
+(1, 2, 45.99, 1),
+(2, 3, 30.50, 2),
+(3, 6, 25.00, 3),
+(4, 4, 60.00, 2),
+(5, 2, 15.75, 1);
 
-INSERT INTO dog (dog_id, name, breed, birth_date) VALUES
-(1, 'Buddy', 'Golden Retriever', '2018-06-01'),
-(2, 'Max', 'Labrador Retriever', '2019-07-15'),
-(3, 'Bella', 'Poodle', '2017-08-30'),
-(4, 'Rufus', 'Collie', '2017-08-30'),
-(5, 'Rex', 'Corgi', '2017-08-30');
+INSERT INTO Ticket (ticket_id, order_id, showing_id, theater_id, showing_time, movie_id, seat_number, price, ticket_type) VALUES
+(1, 1, 1, 1, '2025-09-27 19:30:00', 1, 'A01', 12.00, 0),
+(2, 1, 1, 1, '2025-09-27 19:30:00', 1, 'A02', 12.00, 0),
+(3, 2, 2, 2, '2025-09-27 20:00:00', 2, 'B05', 12.00, 0),
+(4, 3, 3, 3, '2025-09-27 21:15:00', 3, 'C10', 16.00, 1),
+(5, 4, 3, 3, '2025-09-27 21:15:00', 3, 'C11', 16.00, 1),
+(6, 5, 4, 2, '2025-09-27 16:00:00', 4, 'D02', 8.50, 0);
 
-INSERT INTO award (award_id, dog_id, event_date, award_name) VALUES
-(1, 1, '2021-09-20', 'Best in Show'),
-(2, 1, '2020-05-10', 'Top Agility'),
-(3, 3, '2021-11-05', 'Best Obedience');
+INSERT INTO Showing (showing_id, theater_id, showing_time, movie_id) VALUES
+(1, 1, '2025-09-27 19:30:00', 3),
+(2, 2, '2025-09-27 20:00:00', 1),
+(3, 3, '2025-09-27 21:15:00', 3),
+(4, 2, '2025-09-27 16:00:00', 2),
+(5, 4, '2025-09-27 18:45:00', 5);
 
+INSERT INTO Movie (movie_id, title, distributor, runtime, NPAA_rating) VALUES
+(1, 'Space Oddity', 'Columbia Pictures', 132, 'PG-13'),
+(2, 'Love & Lattes', 'Universal', 95, 'PG'),
+(3, 'Final Stand', 'Warner Bros.', 110, 'R'),
+(4, 'The Little Robot', 'Disney', 85, 'G'),
+(5, 'Midnight Chase', 'Paramount', 104, 'PG-13');
 
-INSERT INTO person_dog (dog_id, person_id) VALUES
-(1, 1),
-(2, 1),
-(3, 2),
-(4, 5),
-(5, 5),
-(5, 1),
-(4, 1);
+INSERT INTO Individual_Theater (theater_id, theater_format, max_guests, num_rows) VALUES
+(1, 'IMAX', 250, 15),
+(2, 'Standard', 120, 12),
+(3, 'Dolby', 180, 14),
+(4, 'Standard', 100, 10);

@@ -66,21 +66,21 @@ commonSqlOnlyRequest = " Give me a sqlite select statement that answers the ques
 strategies = {
     "zero_shot": setupSqlScript + commonSqlOnlyRequest,
     "single_domain_double_shot": (setupSqlScript +
-                   " Who doesn't have a way for us to text them? " +
-                   " \nSELECT p.person_id, p.name\nFROM person p\nLEFT JOIN phone ph ON p.person_id = ph.person_id AND ph.can_recieve_sms = 1\nWHERE ph.phone_id IS NULL;\n " +
+                   " Who are the customers with the highest rewards points? " +
+                   " \nSELECT c.person_id, p.first_name, p.last_name, c.rewards_points " +
+                   " FROM Customer c JOIN Person p ON c.person_id = p.person_id " +
+                   " ORDER BY c.rewards_points DESC LIMIT 5;\n " +
                    commonSqlOnlyRequest)
 }
 
 questions = [
-    "Which are the most awarded dogs?",
-    # "Which dogs have multiple owners?",
-    # "Which people have multiple dogs?",
-    # "What are the top 3 cities represented?",
-    # "What are the names and cities of the dogs who have awards?",
-    # "Who has more than one phone number?",
-    "Who doesn't have a way for us to text them?",
-    "Will we have a problem texting any of the previous award winners?"
-    # "I need insert sql into my tables can you provide good unique data?"
+    "Who are the customers with the highest rewards points?",
+    "Which movies have the highest ticket sales?",
+    "What are the showing times for Love & Lattes?",
+    "Which employees were hired in the last year?",
+    "What is the total revenue from ticket sales?",
+    "Which theaters have the highest capacity?",
+    "Which tickets were bought by Bob Jones?"
 ]
 
 def sanitizeForJustSql(value):
